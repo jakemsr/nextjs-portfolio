@@ -87,8 +87,9 @@ export default function Home() {
               <Image
                 src="/profile_pic.jpg"
                 alt="Jacob Meuser"
-                width={300}
-                height={300}
+                width={400}
+                height={400}
+                loading="eager"
                 className="rounded-3xl aspect-square object-cover"
               />
             </div>
