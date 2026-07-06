@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jacob Meuser: Front end developer",
+  title: "Jacob Meuser: Full-stack developer",
   description: "Full-stack developer with a passion for clean code and creating user-centric digital experiences",
 };
 
