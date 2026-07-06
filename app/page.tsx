@@ -57,11 +57,11 @@ export default function Home() {
               <div>
                 <p className="text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">About me</p>
                 <h2 className="mt-4 text-3xl font-semibold text-slate-900 dark:text-slate-100">
-                  Frontend developer with a passion for clean code that creates consistent and usable interfaces.
+                  Full-stack developer with a passion for clean code that creates consistent and usable interfaces.
                 </h2>
               </div>
               <p className="text-base leading-7 text-slate-600 dark:text-slate-300">
-                I'm a frontend developer dedicated to creating user-centric digital experiences.
+                I&apos;m a full-stack developer dedicated to creating user-centric digital experiences.
                 With expertise in modern web technologies and a strong focus on accessibility
                 and performance, I build interfaces that are both beautiful and functional.
               </p>
