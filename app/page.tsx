@@ -44,9 +44,9 @@ export default function Home() {
             <p className="text-lg font-semibold">Jacob Meuser</p>
           </div>
           <nav className="flex flex-wrap items-center gap-4 text-sm text-slate-600 dark:text-slate-300">
-            <a href="#about" className="transition hover:text-slate-900 dark:hover:text-white">About</a>
-            <a href="#projects" className="transition hover:text-slate-900 dark:hover:text-white">Projects</a>
-            <a href="#contact" className="transition hover:text-slate-900 dark:hover:text-white">Contact</a>
+            <a href="#about" className="relative hover:text-slate-900 dark:hover:text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-slate-900 dark:after:bg-slate-100 after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100">About</a>
+            <a href="#projects" className="relative hover:text-slate-900 dark:hover:text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-slate-900 dark:after:bg-slate-100 after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100">Projects</a>
+            <a href="#contact" className="relative hover:text-slate-900 dark:hover:text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-slate-900 dark:after:bg-slate-100 after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100">Contact</a>
           </nav>
         </header>
 
@@ -123,9 +123,9 @@ export default function Home() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p>© {new Date().getFullYear()} Jacob Meuser. All rights reserved.</p>
             <div className="flex flex-wrap items-center gap-4 text-slate-600 dark:text-slate-300">
-              <a href="https://github.com/jakemsr" target="_blank" rel="noreferrer" className="transition hover:text-slate-900 dark:hover:text-white">GitHub</a>
-              <a href="https://www.linkedin.com/in/jacob-meuser-2239863b2" target="_blank" rel="noreferrer" className="transition hover:text-slate-900 dark:hover:text-white">LinkedIn</a>
-              <a href="https://instagram.com/jacob.meuser" target="_blank" rel="noreferrer" className="transition hover:text-slate-900 dark:hover:text-white">Instagram</a>
+              <a href="https://github.com/jakemsr" target="_blank" rel="noreferrer" className="relative hover:text-slate-900 dark:hover:text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-slate-900 dark:after:bg-slate-100 after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100">GitHub</a>
+              <a href="https://www.linkedin.com/in/jacob-meuser-2239863b2" target="_blank" rel="noreferrer" className="relative hover:text-slate-900 dark:hover:text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-slate-900 dark:after:bg-slate-100 after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100">LinkedIn</a>
+              <a href="https://instagram.com/jacob.meuser" target="_blank" rel="noreferrer" className="relative hover:text-slate-900 dark:hover:text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-slate-900 dark:after:bg-slate-100 after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100">Instagram</a>
             </div>
           </div>
         </footer>
