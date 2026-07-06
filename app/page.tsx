@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const skills = [
   'HTML',
   'CSS',
@@ -82,9 +84,11 @@ export default function Home() {
               </a>
             </div>
             <div>
-              <img
+              <Image
                 src="/profile_pic.jpg"
                 alt="Jacob Meuser"
+                width={300}
+                height={300}
                 className="rounded-3xl aspect-square object-cover"
               />
             </div>
@@ -103,9 +107,11 @@ export default function Home() {
               {projects.map((project) => (
                 <article key={project.title} className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm shadow-slate-200/50 transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
                   <a href={project.link} target="_blank" className="block">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
+                      width={400}
+                      height={160}
                       className="h-40 w-full object-cover"
                     />
                     <div className="space-y-3 p-6">
