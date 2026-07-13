@@ -28,7 +28,7 @@ const projects = [
   },
   {
     title: "Dev Events",
-    description: "A responsive web application for discovering and managing developer events.",
+    description: "A responsive web application for discovering developer events.",
     image: "/dev-events.png",
     link: "https://dev-event-omega-five.vercel.app/"
   },
