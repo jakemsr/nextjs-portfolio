@@ -1,6 +1,6 @@
 # Personal Portfolio
 
-(https://jakemsr.dev/ "Live Site")
+[**Live Site**](https://jakemsr.dev/)
 
 ### Description
 Personal portfolio highlighting my best projects
