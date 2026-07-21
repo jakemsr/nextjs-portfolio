@@ -13,10 +13,13 @@ const skills = [
   'Git',
   'MongoDB',
   'Firebase',
+  'Supabase',
+  'SQL',
   'Node.js',
   'Vercel',
+  'Cloudflare Workers',
   'VS Code',
-  'Copilot'
+  'GitHub Copilot'
 ];
 
 const projects = [
