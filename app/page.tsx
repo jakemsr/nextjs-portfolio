@@ -10,16 +10,18 @@ const skills = [
   'React',
   'Next.js',
   'Tailwind CSS',
+  'SQL',
   'Git',
+  'VS Code',
+  'GitHub Copilot',
+  'Bettr Auth',
+  'Resend',
   'MongoDB',
   'Firebase',
   'Supabase',
-  'SQL',
   'Node.js',
   'Vercel',
   'Cloudflare Workers',
-  'VS Code',
-  'GitHub Copilot'
 ];
 
 const projects = [
