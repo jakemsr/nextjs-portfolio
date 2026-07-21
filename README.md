@@ -6,7 +6,7 @@
 Personal portfolio highlighting my best projects
 
 ### Tech Stack
-React, NextJS, TailwindCSS, Resend
+React, NextJS, TailwindCSS, Resend, Cloudflare-Workers
 
 ### Why
 Every developer needs a portfolio to show off their work.
