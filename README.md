@@ -14,4 +14,5 @@ Every developer needs a portfolio to show off their work.
 ### Features
 * Clean design
 * Simple animations that add interest but don't distract
-* Email messaging modal
+* Email modal component displayed with search params, keeping homepage a server page
+* Email sending with Resend
