@@ -36,11 +36,17 @@ const projects = [
     link: "https://dev-event-omega-five.vercel.app/"
   },
   {
+    title: "Summarist",
+    description: "A web application for audio and text summaries of books.",
+    image: "/summarist.png",
+    link: "https://summarist-eight.vercel.app/"
+  },
+  {
     title: "Movie Finder",
     description: "A web application to search and discover movies with ease.",
     image: "/movie-finder.png",
     link: "https://movie-finder-sigma-two.vercel.app/"
-  }
+  },
 ];
 
 export default function Home() {
