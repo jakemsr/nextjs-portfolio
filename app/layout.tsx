@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jacob Meuser: Full-stack developer",
-  description: "Full-stack developer with a passion for clean code and creating user-centric digital experiences",
+  title: "Jacob Meuser: Frontend Software Engineer",
+  description: "Frontend software engineer with a passion for clean code and creating user-centric digital experiences",
 };
 
 export default function RootLayout({
