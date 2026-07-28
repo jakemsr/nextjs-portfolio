@@ -29,25 +29,41 @@ const projects = [
     title: "Skintrinsic",
     description: "A web application for AI assisted skincare.",
     image: "/skintrinsic.png",
-    link: "http://skintrinsic.vercel.app/"
+    link: "http://skintrinsic.vercel.app/",
+    code: "https://github.com/jakemsr/skintrinsic",
+    problem: "Knowing which skincare products are suitable for individual users is challenging.",
+    solution: "Skintrinsic provides personalized skincare recommendations using AI.",
+    decision: "Implemented all animations with Tailwindcss to keep bundle small and maintain performance."
   },
   {
     title: "Dev Events",
     description: "A responsive web application for discovering developer events.",
     image: "/dev-events.png",
-    link: "https://dev-event-omega-five.vercel.app/"
+    link: "https://dev-event-omega-five.vercel.app/",
+    code: "https://github.com/jakemsr/DevEvent",
+    problem: "Developers need a centralized platform to discover relevant events.",
+    solution: "Dev Events aggregates developer events and provides an easy-to-use interface for discovery.",
+    decision: "Implemented authentication with Better Auth to personalize experience and only allow authorized users to add events."
   },
   {
     title: "Summarist",
     description: "A web application for audio and text summaries of books.",
     image: "/summarist.png",
-    link: "https://summarist-eight.vercel.app/"
+    link: "https://summarist-eight.vercel.app/",
+    code: "https://github.com/jakemsr/summarist",
+    problem: "Many people struggle to find time to read a full book.",
+    solution: "Summarist generates concise summaries of books, available in audio and text formats.",
+    decision: "Leveraged Firebase Stripe integration to handle payments and subscriptions efficiently."
   },
   {
     title: "Movie Finder",
     description: "A web application to search and discover movies with ease.",
     image: "/movie-finder.png",
-    link: "https://movie-finder-sigma-two.vercel.app/"
+    link: "https://movie-finder-sigma-two.vercel.app/",
+    code: "https://github.com/jakemsr/movie-finder",
+    problem: "Deciding what to watch can be difficult.",
+    solution: "Movie Finder allows users to search and discover movies efficiently.",
+    decision: "Utilized React Router to keep navigation fast and smooth."
   },
 ];
 
@@ -85,13 +101,15 @@ export default async function Home({ searchParams }: HomeProps) {
               <div>
                 <p className="text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">About me</p>
                 <h2 className="mt-4 text-3xl font-semibold text-slate-900 dark:text-slate-100">
-                  Full-stack developer with a passion for clean code that creates consistent and usable interfaces.
+                  Frontend software engineer with a passion for clean code that creates consistent and usable interfaces.
                 </h2>
               </div>
               <p className="text-base leading-7 text-slate-600 dark:text-slate-300">
-                I&apos;m a full-stack developer dedicated to creating user-centric digital experiences.
-                With expertise in modern web technologies and a strong focus on accessibility
-                and performance, I build interfaces that are both beautiful and functional.
+                I&apos;m a frontend software engineer dedicated to creating user-centric digital experiences.
+                With expertise in modern web technologies and a strong focus on performance,
+                I build interfaces that are both beautiful and functional.
+                Before web development I was an official OpenBSD committer with 800-plus
+                kernel-level C commits.
               </p>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-700 dark:text-slate-200">
@@ -134,8 +152,12 @@ export default async function Home({ searchParams }: HomeProps) {
             </div>
             <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
               {projects.map((project) => (
-                <article key={project.title} className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm shadow-slate-200/50 transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
-                  <a href={project.link} target="_blank" className="block">
+                <article key={project.title} className="flex flex-col items-stretch overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm shadow-slate-200/50 transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
+                  <Link
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -143,11 +165,57 @@ export default async function Home({ searchParams }: HomeProps) {
                       height={160}
                       className="h-40 w-full object-cover"
                     />
-                    <div className="space-y-3 p-6">
-                      <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">{project.title}</h3>
-                      <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">{project.description}</p>
+                  </Link>
+                  <div className="flex flex-col gap-3 grow p-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
+                        {project.title}
+                      </h3>
                     </div>
-                  </a>
+                    <div>
+                      <b>Problem:</b>
+                      <br />
+                      <span className="text-sm leading-6 text-slate-600 dark:text-slate-300">
+                        {project.problem}
+                      </span>
+                    </div>
+                    <div>
+                      <b>Solution:</b>
+                      <br />
+                      <span className="text-sm leading-6 text-slate-600 dark:text-slate-300">
+                        {project.solution}
+                      </span>
+                    </div>
+                    <div>
+                      <b>Technical:</b>
+                      <br />
+                      <span className="text-sm leading-6 text-slate-600 dark:text-slate-300">
+                        {project.decision}
+                      </span>
+                    </div>
+                    <div className="flex justify-around mt-auto">
+                      <div>
+                        <Link
+                          href={project.code}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white dark:bg-slate-700 transition duration-200 ease-out hover:bg-slate-700 hover:shadow-lg hover:scale-105"
+                        >
+                          View Code
+                        </Link>
+                      </div>
+                      <div>
+                        <Link
+                          href={project.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white dark:bg-slate-700 transition duration-200 ease-out hover:bg-slate-700 hover:shadow-lg hover:scale-105"
+                        >
+                          Live Demo
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </article>
               ))}
             </div>
@@ -166,6 +234,6 @@ export default async function Home({ searchParams }: HomeProps) {
         </footer>
 
       </div>
-    </div>
+    </div >
   );
 }
