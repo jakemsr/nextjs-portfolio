@@ -33,7 +33,7 @@ const projects = [
     code: "https://github.com/jakemsr/obsd-device-support",
     problem: "Tracking OpenBSD device support is cumbersome and scattered across various sources.",
     solution: "OpenBSD Device Support Database centralizes information about device support for OpenBSD.",
-    decision: "Implemented efficient search and filtering to quickly find device support information."
+    decision: "Extracted device information from source code and web scraping to quickly build the database."
   },
   {
     title: "Skintrinsic",
