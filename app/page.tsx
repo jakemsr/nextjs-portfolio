@@ -26,6 +26,16 @@ const skills = [
 
 const projects = [
   {
+    title: "OpenBSD Device Support Database",
+    description: "A web application for tracking OpenBSD device support.",
+    image: "/obsd-device-support.png",
+    link: "https://obsd-device-support.vercel.app/",
+    code: "https://github.com/jakemsr/obsd-device-support",
+    problem: "Tracking OpenBSD device support is cumbersome and scattered across various sources.",
+    solution: "OpenBSD Device Support Database centralizes information about device support for OpenBSD.",
+    decision: "Implemented efficient search and filtering to quickly find device support information."
+  },
+  {
     title: "Skintrinsic",
     description: "A web application for AI assisted skincare.",
     image: "/skintrinsic.png",
@@ -54,16 +64,6 @@ const projects = [
     problem: "Many people struggle to find time to read a full book.",
     solution: "Summarist generates concise summaries of books, available in audio and text formats.",
     decision: "Leveraged Firebase Stripe integration to handle payments and subscriptions efficiently."
-  },
-  {
-    title: "Movie Finder",
-    description: "A web application to search and discover movies with ease.",
-    image: "/movie-finder.png",
-    link: "https://movie-finder-sigma-two.vercel.app/",
-    code: "https://github.com/jakemsr/movie-finder",
-    problem: "Deciding what to watch can be difficult.",
-    solution: "Movie Finder allows users to search and discover movies efficiently.",
-    decision: "Utilized React Router to keep navigation fast and smooth."
   },
 ];
 
@@ -101,15 +101,15 @@ export default async function Home({ searchParams }: HomeProps) {
               <div>
                 <p className="text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">About me</p>
                 <h2 className="mt-4 text-3xl font-semibold text-slate-900 dark:text-slate-100">
-                  Frontend software engineer with a passion for clean code that creates consistent and usable interfaces.
+                  Software engineer with a passion for clean code that creates consistent and usable interfaces.
                 </h2>
               </div>
               <p className="text-base leading-7 text-slate-600 dark:text-slate-300">
-                I&apos;m a frontend software engineer dedicated to creating user-centric digital experiences.
+                I&apos;m a software engineer dedicated to creating user-centric digital experiences.
                 With expertise in modern web technologies and a strong focus on performance,
                 I build interfaces that are both beautiful and functional.
                 Before web development I was an official OpenBSD committer with 800-plus
-                kernel-level C commits.
+                kernel-level commits.
               </p>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-700 dark:text-slate-200">
