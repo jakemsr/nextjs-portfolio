@@ -24,7 +24,7 @@ const skills = [
   'Cloudflare Workers',
 ];
 
-const projects = [
+const currentProjects = [
   {
     title: "OpenBSD Device Support Database",
     description: "A web application for tracking OpenBSD device support.",
@@ -35,6 +35,10 @@ const projects = [
     solution: "OpenBSD Device Support Database centralizes information about device support for OpenBSD.",
     decision: "Extracted device information from source code and web scraping to quickly build the database."
   },
+];
+
+
+  const previousProjects = [
   {
     title: "Skintrinsic",
     description: "A web application for AI assisted skincare.",
@@ -84,7 +88,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
         <header className="flex flex-col gap-6 border-b border-slate-200 pb-6 dark:border-slate-800 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="text-lg font-semibold">Jacob Meuser</p>
+            <p className="text-lg font-semibold">Jacob Meuser - Software Engineer</p>
           </div>
           <nav className="flex flex-wrap items-center gap-4 text-sm text-slate-600 dark:text-slate-300">
             <a href="#about" className="relative hover:text-slate-900 dark:hover:text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-slate-900 dark:after:bg-slate-100 after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100">About</a>
@@ -99,29 +103,46 @@ export default async function Home({ searchParams }: HomeProps) {
           <section id="about" className="grid gap-8 lg:grid-cols-[1fr_0.6fr] lg:items-start">
             <div className="space-y-6">
               <div>
-                <p className="text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">About me</p>
-                <h2 className="mt-4 text-3xl font-semibold text-slate-900 dark:text-slate-100">
-                  Software engineer with a passion for clean code that creates consistent and usable interfaces.
-                </h2>
-              </div>
-              <p className="text-base leading-7 text-slate-600 dark:text-slate-300">
-                I&apos;m a software engineer dedicated to creating user-centric digital experiences.
-                With expertise in modern web technologies and a strong focus on performance,
-                I build interfaces that are both beautiful and functional.
-                Before web development I was an official OpenBSD committer with 800-plus
-                kernel-level commits.
-              </p>
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-700 dark:text-slate-200">
-                  Skills
+                <p className="text-lg uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">
+                  About me
                 </p>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  {skills.map(skill => (
-                    <span key={skill} className="rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+              </div>
+              <div className="text-base leading-7 text-slate-600 dark:text-slate-300">
+                <p className="mb-4">
+                  I&apos;m a software engineer with a background spanning Unix systems development,
+                  web applications, and more than 20 years running my own businesses.
+                </p>
+                <p className="mb-4">
+                  I began building websites in 1999 while co-founding an online glass-art business.
+                  As the business grew, I moved from manually maintained pages to Perl and later
+                  PHP and MySQL, while also running our Internet infrastructure on OpenBSD.
+                  That work led me into the OpenBSD project, first through maintaining software
+                  ports and eventually into kernel development.
+                </p>
+                <p className="mb-4">
+                  From 2006-2011, I contributed more than 800 kernel-level C commits across
+                  OpenBSD&apos;s audio and USB subsystems. I worked on device drivers,
+                  suspend/resume, device lifecycle and concurrency problems, and audio infrastructure,
+                  including
+                  the <span className="text-slate-500 dark:text-slate-200 font-mono font-bold tracking-wide">azalia(4)</span> Intel
+                  High Definition Audio driver
+                  and <span className="text-slate-500 dark:text-slate-200 font-mono font-bold tracking-wide">sndio</span>.
+                </p>
+                <p className="mb-4">
+                  Alongside my technical work, I built a long career as a self-employed artist.
+                  I&apos;ve now returned my professional focus to software engineering, bringing
+                  my application-development skills up to date while drawing on the systems
+                  experience and engineering judgment I developed through OpenBSD.
+                </p>
+                <p className="mb-4">
+                  My current work brings those parts of my experience together. I&apos;m building
+                  an OpenBSD Device Support Database
+                  and <span className="text-slate-500 dark:text-slate-200 font-mono font-bold tracking-wide">hwinspect</span>, a
+                  C++ utility that examines hardware on an OpenBSD system and queries the database for
+                  support information.
+                  Together, they combine Unix systems knowledge with modern application development,
+                  databases, APIs, data processing, and user-contributed information.
+                </p>
               </div>
               <Link
                 href="/?modal=true"
@@ -138,20 +159,25 @@ export default async function Home({ searchParams }: HomeProps) {
                 loading="eager"
                 className="rounded-3xl aspect-square object-cover"
               />
+              <p className="my-6 text-base leading-7 italic text-slate-600 dark:text-slate-300">
+                I&apos;m particularly interested in software
+                where <span className="font-bold text-slate-500 dark:text-slate-200">correctness</span>,&nbsp;
+                <span className="font-bold text-slate-500 dark:text-slate-200">maintainability</span>,
+                and <span className="font-bold text-slate-500 dark:text-slate-200">understanding the underlying system</span> matter.
+                I enjoy working across boundaries—systems and applications, code and data,
+                or low-level hardware information and the interfaces that make it useful.
+              </p>
             </div>
           </section>
 
           <section id="projects" className="space-y-8">
             <div className="space-y-3">
-              <p className="text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">
-                Portfolio
+              <p className="text-lg uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">
+                Current Projects
               </p>
-              <h2 className="text-3xl font-semibold text-slate-900 dark:text-slate-100">
-                Some of my projects
-              </h2>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-              {projects.map((project) => (
+              {currentProjects.map((project) => (
                 <article key={project.title} className="flex flex-col items-stretch overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm shadow-slate-200/50 transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
                   <Link
                     href={project.link}
@@ -219,6 +245,20 @@ export default async function Home({ searchParams }: HomeProps) {
                 </article>
               ))}
             </div>
+
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-700 dark:text-slate-200">
+                  Skills
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {skills.map(skill => (
+                    <span key={skill} className="rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
           </section>
         </main>
 
