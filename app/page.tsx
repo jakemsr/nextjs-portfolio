@@ -47,19 +47,35 @@ const currentProjects = [
     image: "/obsd-device-support.png",
     link: "https://obsd-device-support.vercel.app/",
     code: "https://github.com/jakemsr/obsd-device-support",
-    problem: "Tracking OpenBSD device support is cumbersome and scattered across various sources.",
-    solution: "OpenBSD Device Support Database centralizes information about device support for OpenBSD.",
-    decision: "Extracted device information from source code and web scraping to quickly build the database."
+    problem: "OpenBSD hardware support information is distributed across driver source code, \
+      system documentation, and other sources, and the names used by drivers often don't \
+      correspond to the product names users encounter.",
+    solution: "A searchable database that connects OpenBSD hardware identifiers and drivers \
+      with real-world device names, supplemented by user-submitted device reports with source \
+      information that can eventually be verified before being incorporated into the trusted dataset.",
+    decision: "Built a source-code parser for repeatably extracting hardware vendor and product IDs \
+      from drivers, along with a relational PostgreSQL data model, Next.js APIs, authentication, and \
+      device-report submission. The reporting model preserves source provenance and separates \
+      submitted data from verified device information while enforcing relationships between reports \
+      and their dependent records."
   },
   {
     title: "hwinspect",
     description: "A C++ command line tool for hardware inspection.",
     image: "/hwinspect.png",
-    link: "https://github.com/jakemsr/hwinspect",
+    link: "",
     code: "https://github.com/jakemsr/hwinspect",
-    problem: "Inspecting hardware details on a system can be tedious and error-prone.",
-    solution: "hwinspect provides a streamlined command line interface to inspect hardware components efficiently.",
-    decision: "Implemented in C++ for performance and direct access to system hardware information."
+    problem: "OpenBSD provides hardware information through several system utilities, but no \
+      single view brings together the details of detected USB and PCI devices, including \
+      hardware identifiers, reported names, and attached drivers.",
+    solution: "hwinspect collects and organizes USB and PCI device information in one place, \
+      then queries the OpenBSD Device Support Database to supplement locally reported information \
+      with known device names and support data. The tool is also being developed as a future path \
+      for contributing hardware reports directly from an OpenBSD system.",
+    decision: "Built in C++20 with modular parsers for OpenBSD system-command output, libcurl \
+      HTTP requests, JSON processing, concurrent database lookups, and structured error handling. \
+      Saved command output is used as test data so parsing can be developed and verified without \
+      requiring access to every hardware configuration."
   },
 ];
 
@@ -208,7 +224,7 @@ export default async function Home({ searchParams }: HomeProps) {
               {currentProjects.map((project) => (
                 <article key={project.title} className="flex flex-col items-stretch overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm shadow-slate-200/50 transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
                   <Link
-                    href={project.link}
+                    href={project.link || project.code}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -258,16 +274,18 @@ export default async function Home({ searchParams }: HomeProps) {
                           View Code
                         </Link>
                       </div>
-                      <div>
-                        <Link
-                          href={project.link}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white dark:bg-slate-700 transition duration-200 ease-out hover:bg-slate-700 hover:shadow-lg hover:scale-105"
-                        >
-                          Live Demo
-                        </Link>
-                      </div>
+                      {project.link &&
+                        <div>
+                          <Link
+                            href={project.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white dark:bg-slate-700 transition duration-200 ease-out hover:bg-slate-700 hover:shadow-lg hover:scale-105"
+                          >
+                            Live Site
+                          </Link>
+                        </div>
+                      }
                     </div>
                   </div>
                 </article>
@@ -310,7 +328,6 @@ export default async function Home({ searchParams }: HomeProps) {
             <div className="flex flex-wrap items-center gap-4 text-slate-600 dark:text-slate-300">
               <a href="https://github.com/jakemsr" target="_blank" rel="noreferrer" className="relative hover:text-slate-900 dark:hover:text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-slate-900 dark:after:bg-slate-100 after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100">GitHub</a>
               <a href="https://www.linkedin.com/in/jacob-meuser-688b45343" target="_blank" rel="noreferrer" className="relative hover:text-slate-900 dark:hover:text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-slate-900 dark:after:bg-slate-100 after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100">LinkedIn</a>
-              <a href="https://instagram.com/jacob.meuser" target="_blank" rel="noreferrer" className="relative hover:text-slate-900 dark:hover:text-white after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-slate-900 dark:after:bg-slate-100 after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100">Instagram</a>
             </div>
           </div>
         </footer>
