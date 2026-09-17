@@ -171,7 +171,7 @@ export default async function Home({ searchParams }: HomeProps) {
                 </p>
               </div>
             </div>
-            <div className="flex gap-6 lg:flex-col">
+            <div className="flex flex-col md:max-lg:flex-row gap-6">
               <Image
                 src="/profile_pic.jpg"
                 alt="Jacob Meuser"
@@ -204,7 +204,7 @@ export default async function Home({ searchParams }: HomeProps) {
                 Current Projects
               </p>
             </div>
-            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2">
               {currentProjects.map((project) => (
                 <article key={project.title} className="flex flex-col items-stretch overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm shadow-slate-200/50 transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:shadow-none">
                   <Link
@@ -281,7 +281,7 @@ export default async function Home({ searchParams }: HomeProps) {
                 Skills
               </p>
             </div>
-            <div className="mt-4 flex flex-col gap-4">
+            <div className="mt-4 flex flex-col gap-6">
 
               {(Object.keys(skills) as Array<keyof typeof skills>).map((category) => (
                 // now `category` is typed as the union of actual keys
