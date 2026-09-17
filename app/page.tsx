@@ -3,26 +3,42 @@ import Link from "next/link";
 import ContactModal from "@/components/contact-modal";
 
 
-const skills = [
-  'HTML',
-  'CSS',
-  'JavaScript/TypeScript',
-  'React',
-  'Next.js',
-  'Tailwind CSS',
-  'SQL',
-  'Git',
-  'VS Code',
-  'GitHub Copilot',
-  'Better Auth',
-  'Resend',
-  'MongoDB',
-  'Firebase',
-  'Supabase',
-  'Node.js',
-  'Vercel',
-  'Cloudflare Workers',
-];
+const skills = {
+  languages: [
+    'C',
+    'C++',
+    'JavaScript',
+    'TypeScript',
+    'SQL',
+  ],
+  application_development: [
+    'Next.js',
+    'React',
+    'Node.js',
+    'REST APIs',
+    'authentication',
+    'data modeling',
+  ],
+  databases_and_data: [
+    'PostgreSQL',
+    'Prisma',
+    'relational database design',
+    'data extraction and transformation',
+  ],
+  systems: [
+    'Unix',
+    'OpenBSD',
+    'systems programming',
+    'device drivers',
+    'hardware/software integration',
+  ],
+  tools: [
+    'Git',
+    'GitHub',
+    'Vercel',
+    'GitHub Copilot'
+  ],
+};
 
 const currentProjects = [
   {
@@ -35,10 +51,20 @@ const currentProjects = [
     solution: "OpenBSD Device Support Database centralizes information about device support for OpenBSD.",
     decision: "Extracted device information from source code and web scraping to quickly build the database."
   },
+  {
+    title: "hwinspect",
+    description: "A C++ command line tool for hardware inspection.",
+    image: "/hwinspect.png",
+    link: "https://github.com/jakemsr/hwinspect",
+    code: "https://github.com/jakemsr/hwinspect",
+    problem: "Inspecting hardware details on a system can be tedious and error-prone.",
+    solution: "hwinspect provides a streamlined command line interface to inspect hardware components efficiently.",
+    decision: "Implemented in C++ for performance and direct access to system hardware information."
+  },
 ];
 
 
-  const previousProjects = [
+const previousProjects = [
   {
     title: "Skintrinsic",
     description: "A web application for AI assisted skincare.",
@@ -144,13 +170,8 @@ export default async function Home({ searchParams }: HomeProps) {
                   databases, APIs, data processing, and user-contributed information.
                 </p>
               </div>
-              <Link
-                href="/?modal=true"
-                className="inline-flex rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white dark:bg-slate-700 transition duration-200 ease-out hover:bg-slate-700 hover:shadow-lg hover:scale-105">
-                Contact Me
-              </Link>
             </div>
-            <div>
+            <div className="flex gap-6 lg:flex-col">
               <Image
                 src="/profile_pic.jpg"
                 alt="Jacob Meuser"
@@ -159,14 +180,21 @@ export default async function Home({ searchParams }: HomeProps) {
                 loading="eager"
                 className="rounded-3xl aspect-square object-cover"
               />
-              <p className="my-6 text-base leading-7 italic text-slate-600 dark:text-slate-300">
-                I&apos;m particularly interested in software
-                where <span className="font-bold text-slate-500 dark:text-slate-200">correctness</span>,&nbsp;
-                <span className="font-bold text-slate-500 dark:text-slate-200">maintainability</span>,
-                and <span className="font-bold text-slate-500 dark:text-slate-200">understanding the underlying system</span> matter.
-                I enjoy working across boundaries—systems and applications, code and data,
-                or low-level hardware information and the interfaces that make it useful.
-              </p>
+              <div className="flex flex-col gap-4">
+                <p className="text-base leading-7 italic text-slate-600 dark:text-slate-300">
+                  I&apos;m particularly interested in software
+                  where <span className="font-bold text-slate-500 dark:text-slate-200">correctness</span>,&nbsp;
+                  <span className="font-bold text-slate-500 dark:text-slate-200">maintainability</span>,
+                  and <span className="font-bold text-slate-500 dark:text-slate-200">understanding the underlying system</span> matter.
+                  I enjoy working across boundaries—systems and applications, code and data,
+                  or low-level hardware information and the interfaces that make it useful.
+                </p>
+                <Link
+                  href="/?modal=true"
+                  className="inline-flex w-fit rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white dark:bg-slate-700 transition duration-200 ease-out hover:bg-slate-700 hover:shadow-lg hover:scale-105">
+                  Contact Me
+                </Link>
+              </div>
             </div>
           </section>
 
@@ -245,21 +273,35 @@ export default async function Home({ searchParams }: HomeProps) {
                 </article>
               ))}
             </div>
-
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-700 dark:text-slate-200">
-                  Skills
-                </p>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  {skills.map(skill => (
-                    <span key={skill} className="rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
           </section>
+
+          <section id="skills" className="space-y-8">
+            <div className="space-y-3">
+              <p className="text-lg uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">
+                Skills
+              </p>
+            </div>
+            <div className="mt-4 flex flex-col gap-4">
+
+              {(Object.keys(skills) as Array<keyof typeof skills>).map((category) => (
+                // now `category` is typed as the union of actual keys
+                <div key={category} className="flex flex-col gap-2">
+                  <div className="text-sm font-semibold uppercase tracking-[0.28em] text-slate-700 dark:text-slate-200">
+                    {category.split('_').join(' ')}
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {skills[category].map((skill) => (
+                      <span key={skill} className="rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+
+            </div>
+          </section>
+
         </main>
 
         <footer className="border-t border-slate-200 pt-6 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-400">
